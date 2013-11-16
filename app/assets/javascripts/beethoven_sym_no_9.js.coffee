@@ -4,18 +4,22 @@
 window.Beethoven ?= {}
 
 
-Beethoven.init = (dom_id_to_bind_to) ->
-  #Property.Match.InitialLoader.SetupTemplates(dom_id_to_bind_to)
+Beethoven.init = () ->
+  Beethoven.SetupTemplates()
   viewModel = Beethoven.CreateViewModel()
   Beethoven.ViewModel = viewModel
-  element = $(dom_id_to_bind_to)[0]; 
+  element = $("#beethoven")[0]; 
   ko.cleanNode(element);
   ko.applyBindings(viewModel, element)
  
+Beethoven.SetupTemplates = () ->
+  $( "body" ).append('<div id="beethoven" style="display:none;" data-bind="visible: play">
+  <label>Beethoven</label>
+  <button data-bind="click: play">play</button>
+</div>')
 
 Beethoven.CreateViewModel = () ->
   model = {}
-  model.name = ko.observable("Beethoven")
 
   model.play = () ->
     Beethoven.Play()

@@ -1,14 +1,18 @@
 window.F ?= {}
 
 
-F.InitialLoader = init: (dom_id_to_bind_to) ->
-  #Property.Match.InitialLoader.SetupTemplates(dom_id_to_bind_to)
+F.init = () ->
+  F.SetupTemplates()
   viewModel = F.CreateViewModel()
   F.ViewModel = viewModel
-  ko.applyBindings(viewModel, $(dom_id_to_bind_to)[0])
+  ko.applyBindings(viewModel, $("#f")[0])
   F.Setup()
 
- 
+F.SetupTemplates = () ->
+  $( "#tones" ).append('<div id="f">
+  F <span data-bind="visible: playing">playing</span>
+</div>') 
+
 F.CreateViewModel = () ->
   model = {}
   model.playing = ko.observable(false)

@@ -1,11 +1,11 @@
 window.NoteLog ?= {}
 
 
-NoteLog.init = (dom_id_to_bind_to) ->
+NoteLog.init = () ->
   NoteLog.SetupTemplates()
   viewModel = NoteLog.CreateViewModel()
   NoteLog.ViewModel = viewModel
-  ko.applyBindings(viewModel, $(dom_id_to_bind_to)[0])
+  ko.applyBindings(viewModel, $("#log")[0])
   NoteLog.SetupBindings()
  
 NoteLog.SetupTemplates = () ->

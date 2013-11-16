@@ -1,13 +1,17 @@
 window.E ?= {}
 
 
-E.InitialLoader = init: (dom_id_to_bind_to) ->
-  #Property.Match.InitialLoader.SetupTemplates(dom_id_to_bind_to)
+E.init = () ->
+  E.SetupTemplates()
   viewModel = E.CreateViewModel()
   E.ViewModel = viewModel
-  ko.applyBindings(viewModel, $(dom_id_to_bind_to)[0])
+  ko.applyBindings(viewModel, $("#e")[0])
   E.Setup()
 
+E.SetupTemplates = () ->
+  $( "#tones" ).append('<div id="e">
+  E <span data-bind="visible: playing">playing</span>
+</div>') 
  
 E.CreateViewModel = () ->
   model = {}

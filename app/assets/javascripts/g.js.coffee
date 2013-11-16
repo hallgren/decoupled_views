@@ -1,17 +1,16 @@
 window.G ?= {}
 
 
-G.InitialLoader = init: (G) ->
+G.init = () ->
   G.SetupTemplates()
   viewModel = G.CreateViewModel()
   G.ViewModel = viewModel
-  ko.applyBindings(viewModel, $(dom_id_to_bind_to)[0])
+  ko.applyBindings(viewModel, $("#g")[0])
   G.Setup()
 
 G.SetupTemplates = () ->
-  $( "body" ).append('<div id="morgan" style="display:none;" data-bind="visible: play">
-  <label data-bind="text: name"></label>
-  <button data-bind="click: play">play</button>
+  $( "#tones" ).append('<div id="g">
+  G <span data-bind="visible: playing">playing</span>
 </div>')
  
 G.CreateViewModel = () ->

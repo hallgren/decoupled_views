@@ -1,13 +1,21 @@
 window.NotePlaying ?= {}
 
 
-NotePlaying.InitialLoader = init: (dom_id_to_bind_to) ->
-  #Property.Match.InitialLoader.SetupTemplates(dom_id_to_bind_to)
+NotePlaying.init = () ->
+  NotePlaying.SetupTemplates()
   viewModel = NotePlaying.CreateViewModel()
   NotePlaying.ViewModel = viewModel
-  ko.applyBindings(viewModel, $(dom_id_to_bind_to)[0])
+  ko.applyBindings(viewModel, $("#note_playing")[0])
   NotePlaying.SetupBindings()
  
+
+NotePlaying.SetupTemplates = () ->
+  $( "body" ).append('<div id="note_playing">
+  Playing <span data-bind="text: playing_note"></span>
+</div>')
+
+
+
 NotePlaying.SetupBindings = () ->
   $(window).on "E", ->
     NotePlaying.ViewModel.playing_note("E")
