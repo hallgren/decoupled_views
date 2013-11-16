@@ -13,7 +13,7 @@ Beethoven.init = () ->
   ko.applyBindings(viewModel, element)
  
 Beethoven.SetupTemplates = () ->
-  $( "body" ).append('<div id="beethoven" style="display:none;" data-bind="visible: play">
+  $( "body" ).append('<div id="beethoven">
   <label>Beethoven</label>
   <button data-bind="click: play">play</button>
 </div>')

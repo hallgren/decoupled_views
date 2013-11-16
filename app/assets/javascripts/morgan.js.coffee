@@ -13,7 +13,7 @@ Morgan.init = () ->
   ko.applyBindings(viewModel, element)
  
 Morgan.SetupTemplates = () ->
-  $( "body" ).append('<div id="morgan" style="display:none;" data-bind="visible: play">
+  $( "body" ).append('<div id="morgan">
   <label data-bind="text: name"></label>
   <button data-bind="click: play">play</button>
 </div>')
