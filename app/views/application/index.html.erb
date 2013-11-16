@@ -1,0 +1,35 @@
+<div id="melody" style="display:none;" data-bind="visible: play">
+  <label data-bind="text: name"></label>
+  <button data-bind="click: play">play</button>
+</div>
+<div id="note_playing">
+  Playing <span data-bind="text: playing_note"></span>
+</div>
+<div id="c">
+  C <span data-bind="visible: playing">playing</span>
+</div>
+<div id="d">
+  D <span data-bind="visible: playing">playing</span>
+</div>
+<div id="e">
+  E <span data-bind="visible: playing">playing</span>
+</div>
+<div id="f">
+  F <span data-bind="visible: playing">playing</span>
+</div>
+<div id="g">
+  G <span data-bind="visible: playing">playing</span>
+</div>
+
+<script type="text/javascript">
+  Beethoven.init("#melody");
+  //Morgan.init("#morgan");
+  NotePlaying.InitialLoader.init("#note_playing");
+  C.InitialLoader.init("#c");
+  D.InitialLoader.init("#d");
+  E.InitialLoader.init("#e");
+  F.InitialLoader.init("#f");
+  G.InitialLoader.init("#g");
+  NoteLog.init("#log")
+
+</script>
