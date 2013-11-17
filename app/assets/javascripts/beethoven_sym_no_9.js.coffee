@@ -1,8 +1,4 @@
-
-#$(document).ready ->
-
 window.Beethoven ?= {}
-
 
 Beethoven.init = () ->
   Beethoven.SetupTemplates()

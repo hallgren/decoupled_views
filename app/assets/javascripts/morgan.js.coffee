@@ -1,8 +1,4 @@
-
-#$(document).ready ->
-
 window.Morgan ?= {}
-
 
 Morgan.init = () ->
   Morgan.SetupTemplates()
