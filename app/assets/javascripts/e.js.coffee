@@ -19,17 +19,11 @@ E.CreateViewModel = () ->
   model
 
 E.Setup = () ->
-  window.AudioContext = window.AudioContext or window.webkitAudioContext
-  context = new AudioContext()
-  Buffer = null
-  bufferLoader = new BufferLoader(context, "/assets/e.wav", (buffer) ->
-    Buffer = buffer
-  )
-  bufferLoader.load()
 
   $(window).on "E", ->
+    audio = new Audio("/assets/e.wav");
     E.ViewModel.playing(true)
-    playSound context, Buffer, Buffer.duration
+    audio.play()
     console.log "E"
     setTimeout ->
       E.ViewModel.playing(false)

@@ -19,17 +19,11 @@ G.CreateViewModel = () ->
   model
 
 G.Setup = () ->
-  window.AudioContext = window.AudioContext or window.webkitAudioContext
-  context = new AudioContext()
-  Buffer = null
-  bufferLoader = new BufferLoader(context, "/assets/g.wav", (buffer) ->
-    Buffer = buffer
-  )
-  bufferLoader.load()
 
   $(window).on "G", ->
     G.ViewModel.playing(true)
-    playSound context, Buffer, Buffer.duration
+    audio = new Audio("/assets/g.wav");
+    audio.play()
     console.log "G"
     setTimeout ->
       G.ViewModel.playing(false)
